@@ -646,6 +646,13 @@ unimpacted_plot <- ggplot() +
 # using patchwork to show the distributions side by side
 impacted_plot + unimpacted_plot
 
+
+# save plots as figures
+ggsave(filename = "income_dist_plot_impacted.png", plot = impacted_plot,
+       path = here("figs"), width = 10, height = 6)
+
+ggsave(filename = "income_dist_plot_unimpacted.png", plot = unimpacted_plot,
+       path = here("figs"), width = 10, height = 6)
 ```
 
 ### Results
