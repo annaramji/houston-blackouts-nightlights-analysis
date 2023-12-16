@@ -2,7 +2,12 @@
 
 Analysis of blackouts and the ensuing power crisis following the 2021 winter storm in the Houston metropolitan area through VIIRS night lights data and more.
 
-[![](figs/texas-blackout-pic.jpeg){width="715"}](https://en.wikipedia.org/wiki/2021_Texas_power_crisis)
+### Contributors
+
+- Anna Ramji [GitHub](https://github.com/a-ramji)  [Website](https://a-ramji.github.io/)
+
+
+[![](figs/texas-blackout-pic.jpeg)](https://en.wikipedia.org/wiki/2021_Texas_power_crisis)
 
 ## Background & Overview
 
@@ -31,7 +36,7 @@ In my analysis, I'll demonstrate the following skills:
 
 ## Data
 
-The data used in this project are too large to export to GitHub, so I've provided links to access/download the data for reproducibility below. The night lights data has been preprocessed for academic use, and the file (92.2 MB) is unfortunately too large to upload on GitHub.
+The data used in this project are too large to export to GitHub, so I've provided links to access/download the data for reproducibility below. The night lights data has been preprocessed for academic use, and the file (92.2 MB) is unfortunately too large to upload on GitHub. 
 
 ### Night lights data
 
@@ -39,7 +44,7 @@ My analysis will be based on remotely-sensed night lights data, acquired from th
 
 In particular, I will use the VNP46A1 to detect differences in night lights before and after the storm to identify areas that lost electric power.
 
-I am using two primary nights' data: February 7th and February 16th, as these provide the clearest view (least cloud cover) for the analysis. This data was preprocessed and prepared by Ruth Oliver for the Master of Environmental Data Science's Geospatial Analysis course in the Fall quarter, 2023.
+I am using two primary nights' data: February 7th and February 16th, as these provide the clearest view (least cloud cover) for the analysis. This data was preprocessed and prepared by [Ruth Oliver](https://ryoliver-lab.github.io/)  for the Master of Environmental Data Science's Geospatial Analysis course in the Fall quarter, 2023.
 
 **Citation:**
 
@@ -103,6 +108,7 @@ United States Census Bureau (2019), American Community Survey [Data file] Availa
 ```
 
 ## Sources
+
 
 Geofabrik Download Server (2018), OpenStreetMap Data Extracts [Data file] Available from: <https://download.geofabrik.de/> Access date: October 26, 2023.
 
