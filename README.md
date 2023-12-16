@@ -11,7 +11,33 @@ Analysis of blackouts and the ensuing power crisis following the 2021 winter sto
 
 In the primary analysis notebook, I use VIIRS night lights data, OpenStreetMap data, and US Census Bureau data to:
 - estimate the number of homes in Houston that lost power as a result of the first two storms\
-- investigate if socioeconomic factors are predictors of communities recovery from a power outage
+- investigate if socioeconomic factors are predictors of communities' recovery from a power outage
+
+
+In my analysis, I'll demonstrate the following skills:
+
+- load vector and raster data
+
+- raster manipulation and data processing with the `stars` package
+
+- perform spatial joins
+
+- reading simple features and layers from files and GeoPackages using the `sf` package
+
+- using `sf` to read in data from an ArcGIS ["file geodatabase"](https://desktop.arcgis.com/en/arcmap/latest/manage-data/administer-file-gdbs/file-geodatabases.htm)
+
+- raster reclassification
+
+- crop and cut geospatial data through buffering
+
+- SQL query definition, layer selection
+
+- use `dplyr` for vector data cleaning
+
+- `dplyr` summary statistics
+
+- raster map development in `ggplot2` and `tmap`
+
 
 ## Data
 
