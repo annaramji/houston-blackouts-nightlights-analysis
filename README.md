@@ -38,6 +38,10 @@ In my analysis, I'll demonstrate the following skills:
 
 - raster map development in `ggplot2` and `tmap`
 
+- spatial subsetting, masking, and cropping
+
+- convert vector data into simple feature collection
+
 
 ## Data
 
