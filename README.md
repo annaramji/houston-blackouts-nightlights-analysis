@@ -1,10 +1,10 @@
 # Houston 2021 Winter Storm Blackouts Night Lights Data Analysis
-Analysis of Houston blackouts and the ensuing power crisis in the 2021 winter storm through nightlights data 
+Analysis of blackouts and the ensuing power crisis following the 2021 winter storm in the Houston Metropolitan area  through nightlights data 
 
 
 ## Background & Overview
 
-"In February 2021, the state of Texas suffered a major power crisis, which came about as a result of three severe winter storms sweeping across the United States on February 10--11, 13--17, and 15--20."[^1] For more background, check out these [engineering](https://www.youtube.com/watch?v=08mwXICY4JM&ab_channel=PracticalEngineering) and [political](https://www.youtube.com/watch?v=Zcrsgdl_hP0&ab_channel=Vox) perspectives.
+"In February 2021, the state of Texas suffered a major power crisis, which came about as a result of three severe winter storms sweeping across the United States on February 10--11, 13--17, and 15--20."[^1] For more background, check out these [engineering](https://www.youtube.com/watch?v=08mwXICY4JM&ab_channel=PracticalEngineering) and [political](https://www.youtube.com/watch?v=Zcrsgdl_hP0&ab_channel=Vox) perspectives. These videos succinctly convey the severity and immediate consequences of the blackouts that occurred in Texas in the winter storms of early 2021, and convey that the lasting impacts will (and should) be studied for years to come.
 
 [^1]: Wikipedia. 2021. "2021 Texas power crisis." Last modified October 2, 2021. <https://en.wikipedia.org/wiki/2021_Texas_power_crisis> Access date: October 26, 2023.
 
@@ -25,12 +25,12 @@ VIIRS data is distributed through NASA's [Level-1 and Atmospheric Archive & Dist
 
 In particular, I will use the VNP46A1 to detect differences in night lights before and after the storm to identify areas that lost electric power. 
 
-I am using two primary nights' data: February 7th and February 16th, as these provide the clearest view (least cloud cover) for the analysis. 
+I am using two primary nights' data: February 7th and February 16th, as these provide the clearest view (least cloud cover) for the analysis. This data was preprocessed and prepared by Ruth Oliver for the Master of Environmental Data Science's Geospatial Analysis course in the Fall quarter, 2023. 
 
 
 **Citation:**
 
-NASA Earth Data, Level-1 and Atmospheric Archive & Distribution System Distributed Active Archive Center (LAADS DAAC) [Data file] Available from: https://ladsweb.modaps.eosdis.nasa.gov/ Access date: December 14, 2023.
+NASA Earth Data, Level-1 and Atmospheric Archive & Distribution System Distributed Active Archive Center (LAADS DAAC) [Data file] Available from: https://ladsweb.modaps.eosdis.nasa.gov/ Access date: October 26, 2023.
 
 
 ### OpenStreetMap data 
@@ -43,6 +43,7 @@ I used [Geofabrik's download sites](https://download.geofabrik.de/) to retrieve 
 
 #### Houses
 
+OpenStreetMap also has building data, which I will use in my analysis to find the number of buildings impacted by the blackouts in the Houston Metropolitan area. The prepared data is in the `gis_osm_buildings_a_free_1.gpkg` Geopackage visible in the repository structure.
 
 **Citation:**
 
@@ -66,7 +67,7 @@ United States Census Bureau (2019), American Community Survey [Data file] Availa
 
 Geofabrik Download Server (2018), OpenStreetMap Data Extracts [Data file] Available from: https://download.geofabrik.de/ Access date: October 26, 2023.
 
-NASA Earth Data, Level-1 and Atmospheric Archive & Distribution System Distributed Active Archive Center (LAADS DAAC) [Data file] Available from: https://ladsweb.modaps.eosdis.nasa.gov/ Access date: December 14, 2023.
+NASA Earth Data, Level-1 and Atmospheric Archive & Distribution System Distributed Active Archive Center (LAADS DAAC) [Data file] Available from: https://ladsweb.modaps.eosdis.nasa.gov/ Access date: October 26, 2023.
 
 United States Census Bureau (2019), American Community Survey [Data file] Available from: https://www.census.gov/programs-surveys/acs Access date: October 26, 2023.
 
