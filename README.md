@@ -91,6 +91,37 @@ United States Census Bureau (2019), American Community Survey [Data file] Availa
 
 ## Repository Structure 
 
+```bash
+.
+├── LICENSE
+├── README.md
+├── data # too large to export to GitHub, see Data section and Sources
+│   ├── ACS_2019_5YR_TRACT_48_TEXAS.gdb # census data
+│   │   ├── gdb
+│   │   └── timestamps
+│   ├── VNP46A1 # night lights data
+│   │   ├── VNP46A1.A2021038.h08v05.001.2021039064328.tif
+│   │   ├── VNP46A1.A2021038.h08v06.001.2021039064329.tif
+│   │   ├── VNP46A1.A2021047.h08v05.001.2021048091106.tif
+│   │   └── VNP46A1.A2021047.h08v06.001.2021048091105.tif
+│   ├── gis_osm_buildings_a_free_1.gpkg # buildings data
+│   └── gis_osm_roads_free_1.gpkg # roads data
+├── docs # primary analysis files, Quarto markdown notebook
+│   ├── houston-blackouts-nightlights-analysis.html
+│   ├── houston-blackouts-nightlights-analysis.qmd
+│   └── houston-blackouts-nightlights-analysis_files
+│       ├── figure-html # output figures
+│       └── libs # quarto css for output
+│           ├── bootstrap
+│           │   ├── ~
+│           ├── clipboard
+│           │   └── ~
+│           └── quarto-html
+│               ├── ~
+├── figs # images and figures
+└── houston-blackouts-nightlights-analysis.Rproj
+
+```
 
 
 ## Sources

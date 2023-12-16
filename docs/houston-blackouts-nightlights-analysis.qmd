@@ -5,12 +5,7 @@ date: "December 15, 2023"
 format: 
   html:
     code-fold: true
-output:
-    html_document:
-      print_df: paged
-      toc: yes
-      toc_depth: 4
-      toc_float: yes
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -24,7 +19,10 @@ knitr::opts_chunk$set(include = TRUE, echo = TRUE, warning = FALSE, message = FA
 [^1]: Wikipedia. 2021. "2021 Texas power crisis." Last modified October 2, 2021. <https://en.wikipedia.org/wiki/2021_Texas_power_crisis> Access date: October 26, 2023.
 
 In the primary analysis notebook, I use VIIRS night lights data, OpenStreetMap data, and US Census Bureau data to: - estimate the number of homes in Houston that lost power as a result of the first two storms\
-- investigate if socioeconomic factors are predictors of communities recovery from a power outage \## Data
+- investigate if socioeconomic factors are predictors of communities recovery from a power outage \
+
+
+## Data
 
 The data used in this project are too large to export to GitHub, so I've provided links to access/download the data for reproducibility below. The night lights data has been preprocessed for academic use, and the file (92.2 MB) is unfortunately too large to upload on GitHub.
 
@@ -449,7 +447,7 @@ homes_blackout <- buildings[buildings_in_blackout, ]
 cat("There were", nrow(homes_blackout), "homes within areas that experienced a blackout")
 ```
 
-## Investigating socioeconomic factors
+# Investigating socioeconomic factors
 
 ##### Clean ACS data
 
@@ -476,7 +474,7 @@ median_income <- income %>% dplyr::select(B19013e1, GEOID) %>% # specifying dply
          "GEOID_Data" = "GEOID") # renaming to match `texas_census` column name
 ```
 
-#### Determining which census tracts experienced blackouts
+### Determining which census tracts experienced blackouts
 
 Because the `income` and thus `median_income` datasets do not have geometries associated with them, I can't spatially join them. Instead, I'll use `dplyr`'s `left_join()` to join the income data to the census tract geometries by geometry ID (our carefully renamed `GEOID_Data` column).\
 
@@ -511,7 +509,7 @@ cat("There were", n_census_impacted, "census tracts impacted by blackouts in the
 ```
 
 
-### Comparing incomes of impacted tracts to unimpacted tracts
+## Comparing incomes of impacted tracts to unimpacted tracts
 
 
 To investigate the relationship between median income and blackout status per census tract, I crop the census tract data to the area of interest, create centroids in the census tracts that were impacted by blackouts, and map these onto a base layer of Houston census tracts colored by median income.
@@ -526,6 +524,8 @@ census_homes_cropped <- census_income[homes_blackout, ]
 # making centroids to show which census tracts had blackouts
 cropped_centroids <- st_centroid(census_homes_cropped) # using our dataset we got from the bracket-selection method and st_intersects between census + income data and buildings in blackout areas
 ```
+
+### Mapping blackout status & median income
 
 For clearer visualization, I have two maps: one with the blackout status indicated by centroids, and the other with blackout status indicated by a red outline around the impacted tracts.
 
@@ -591,6 +591,10 @@ map_borders <- tm_shape(houston_census_income) +
 map_borders
 ```
 ::: 
+
+There doesn't seem to be a clear trend in socioeconomic status and blackout status. 
+
+### Distribution of median income by blackout status
 
 To further visualize this relationship, I create subsets of impacted and unimpacted tracts and  plot the distribution of median income below.
 

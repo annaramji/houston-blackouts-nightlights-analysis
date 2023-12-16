@@ -75,10 +75,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#night-lights-data" id="toc-night-lights-data" class="nav-link" data-scroll-target="#night-lights-data">Night lights data</a></li>
+  <li><a href="#openstreetmap-data" id="toc-openstreetmap-data" class="nav-link" data-scroll-target="#openstreetmap-data">OpenStreetMap data</a></li>
+  </ul></li>
+  <li><a href="#reading-in-the-data" id="toc-reading-in-the-data" class="nav-link" data-scroll-target="#reading-in-the-data">Reading in the data</a></li>
+  <li><a href="#finding-defining-blackout-areas" id="toc-finding-defining-blackout-areas" class="nav-link" data-scroll-target="#finding-defining-blackout-areas">Finding &amp; Defining Blackout Areas</a>
+  <ul class="collapse">
+  <li><a href="#night-lights-data-exploration-preparation" id="toc-night-lights-data-exploration-preparation" class="nav-link" data-scroll-target="#night-lights-data-exploration-preparation">Night Lights Data Exploration &amp; Preparation</a>
+  <ul class="collapse">
+  <li><a href="#preliminary-visualization" id="toc-preliminary-visualization" class="nav-link" data-scroll-target="#preliminary-visualization">Preliminary Visualization</a></li>
+  </ul></li>
+  <li><a href="#blackout-mask" id="toc-blackout-mask" class="nav-link" data-scroll-target="#blackout-mask">Blackout Mask</a>
+  <ul class="collapse">
+  <li><a href="#excluding-highways-from-blackout-mask" id="toc-excluding-highways-from-blackout-mask" class="nav-link" data-scroll-target="#excluding-highways-from-blackout-mask">Excluding highways from blackout mask</a></li>
+  <li><a href="#finding-areas-farther-than-200-meters-away-from-highways" id="toc-finding-areas-farther-than-200-meters-away-from-highways" class="nav-link" data-scroll-target="#finding-areas-farther-than-200-meters-away-from-highways">Finding areas farther than 200 meters away from highways</a></li>
+  </ul></li>
+  <li><a href="#finding-homes-impacted-by-blackouts" id="toc-finding-homes-impacted-by-blackouts" class="nav-link" data-scroll-target="#finding-homes-impacted-by-blackouts">Finding homes impacted by blackouts</a></li>
+  </ul></li>
+  <li><a href="#investigating-socioeconomic-factors" id="toc-investigating-socioeconomic-factors" class="nav-link" data-scroll-target="#investigating-socioeconomic-factors">Investigating socioeconomic factors</a>
+  <ul class="collapse">
+  <li><a href="#determining-which-census-tracts-experienced-blackouts" id="toc-determining-which-census-tracts-experienced-blackouts" class="nav-link" data-scroll-target="#determining-which-census-tracts-experienced-blackouts">Determining which census tracts experienced blackouts</a></li>
+  <li><a href="#comparing-incomes-of-impacted-tracts-to-unimpacted-tracts" id="toc-comparing-incomes-of-impacted-tracts-to-unimpacted-tracts" class="nav-link" data-scroll-target="#comparing-incomes-of-impacted-tracts-to-unimpacted-tracts">Comparing incomes of impacted tracts to unimpacted tracts</a>
+  <ul class="collapse">
+  <li><a href="#mapping-blackout-status-median-income" id="toc-mapping-blackout-status-median-income" class="nav-link" data-scroll-target="#mapping-blackout-status-median-income">Mapping blackout status &amp; median income</a></li>
+  <li><a href="#distribution-of-median-income-by-blackout-status" id="toc-distribution-of-median-income-by-blackout-status" class="nav-link" data-scroll-target="#distribution-of-median-income-by-blackout-status">Distribution of median income by blackout status</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -114,7 +152,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>“In February 2021, the state of Texas suffered a major power crisis, which came about as a result of three severe winter storms sweeping across the United States on February 10–11, 13–17, and 15–20.”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> For more background, check out these <a href="https://www.youtube.com/watch?v=08mwXICY4JM&amp;ab_channel=PracticalEngineering">engineering</a> and <a href="https://www.youtube.com/watch?v=Zcrsgdl_hP0&amp;ab_channel=Vox">political</a> perspectives. These videos succinctly convey the severity and immediate consequences of the blackouts that occurred in Texas in the winter storms of early 2021, and convey that the lasting impacts will (and should) be studied for years to come.</p>
 <p>In the primary analysis notebook, I use VIIRS night lights data, OpenStreetMap data, and US Census Bureau data to: - estimate the number of homes in Houston that lost power as a result of the first two storms<br>
-- investigate if socioeconomic factors are predictors of communities recovery from a power outage ## Data</p>
+- investigate if socioeconomic factors are predictors of communities recovery from a power outage<br>
+</p>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The data used in this project are too large to export to GitHub, so I’ve provided links to access/download the data for reproducibility below. The night lights data has been preprocessed for academic use, and the file (92.2 MB) is unfortunately too large to upload on GitHub.</p>
 <section id="night-lights-data" class="level3">
 <h3 class="anchored" data-anchor-id="night-lights-data">Night lights data</h3>
@@ -607,8 +649,9 @@ There were 9 areas within 200 meters of a road that experienced a blackout</code
 </div>
 </div>
 </section>
-<section id="investigating-socioeconomic-factors" class="level2">
-<h2 class="anchored" data-anchor-id="investigating-socioeconomic-factors">Investigating socioeconomic factors</h2>
+</section>
+<section id="investigating-socioeconomic-factors" class="level1">
+<h1>Investigating socioeconomic factors</h1>
 <section id="clean-acs-data" class="level5">
 <h5 class="anchored" data-anchor-id="clean-acs-data">Clean ACS data</h5>
 <p>I reprojected the <code>texas_census</code> data at the beginning to EPSG:3083. There are currently two ACS/census datasets in the environment now: <code>texas_census</code>, which contains the geometries layer, and <code>income</code>, which contains the income layer.</p>
@@ -633,8 +676,8 @@ There were 9 areas within 200 meters of a road that experienced a blackout</code
 </details>
 </div>
 </section>
-<section id="determining-which-census-tracts-experienced-blackouts" class="level4">
-<h4 class="anchored" data-anchor-id="determining-which-census-tracts-experienced-blackouts">Determining which census tracts experienced blackouts</h4>
+<section id="determining-which-census-tracts-experienced-blackouts" class="level3">
+<h3 class="anchored" data-anchor-id="determining-which-census-tracts-experienced-blackouts">Determining which census tracts experienced blackouts</h3>
 <p>Because the <code>income</code> and thus <code>median_income</code> datasets do not have geometries associated with them, I can’t spatially join them. Instead, I’ll use <code>dplyr</code>’s <code>left_join()</code> to join the income data to the census tract geometries by geometry ID (our carefully renamed <code>GEOID_Data</code> column).<br>
 </p>
 <div class="cell">
@@ -676,8 +719,8 @@ There were 9 areas within 200 meters of a road that experienced a blackout</code
 </details>
 </div>
 </section>
-<section id="comparing-incomes-of-impacted-tracts-to-unimpacted-tracts" class="level3">
-<h3 class="anchored" data-anchor-id="comparing-incomes-of-impacted-tracts-to-unimpacted-tracts">Comparing incomes of impacted tracts to unimpacted tracts</h3>
+<section id="comparing-incomes-of-impacted-tracts-to-unimpacted-tracts" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-incomes-of-impacted-tracts-to-unimpacted-tracts">Comparing incomes of impacted tracts to unimpacted tracts</h2>
 <p>To investigate the relationship between median income and blackout status per census tract, I crop the census tract data to the area of interest, create centroids in the census tracts that were impacted by blackouts, and map these onto a base layer of Houston census tracts colored by median income.</p>
 <div class="cell">
 <details>
@@ -692,6 +735,8 @@ There were 9 areas within 200 meters of a road that experienced a blackout</code
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>cropped_centroids <span class="ot">&lt;-</span> <span class="fu">st_centroid</span>(census_homes_cropped) <span class="co"># using our dataset we got from the bracket-selection method and st_intersects between census + income data and buildings in blackout areas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<section id="mapping-blackout-status-median-income" class="level3">
+<h3 class="anchored" data-anchor-id="mapping-blackout-status-median-income">Mapping blackout status &amp; median income</h3>
 <p>For clearer visualization, I have two maps: one with the blackout status indicated by centroids, and the other with blackout status indicated by a red outline around the impacted tracts.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Centroids</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Outlines</a></li></ul>
@@ -770,6 +815,10 @@ There were 9 areas within 200 meters of a road that experienced a blackout</code
 </div>
 </div>
 </div>
+<p>There doesn’t seem to be a clear trend in socioeconomic status and blackout status.</p>
+</section>
+<section id="distribution-of-median-income-by-blackout-status" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-median-income-by-blackout-status">Distribution of median income by blackout status</h3>
 <p>To further visualize this relationship, I create subsets of impacted and unimpacted tracts and plot the distribution of median income below.</p>
 <div class="cell">
 <details>
